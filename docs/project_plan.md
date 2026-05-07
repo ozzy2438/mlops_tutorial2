@@ -14,6 +14,11 @@ local development: it will use environment variables for Azure connection
 details and prepare/download the expected raw files into the local raw data
 folder.
 
+GitHub Actions now checks the Python project automatically on pushes and pull
+requests. This CI workflow helps the team catch syntax errors, unsafe imports,
+and accidentally committed raw CSV files before changes are merged. Raw data
+should remain outside GitHub and continue to live in Azure Blob Storage.
+
 ## Sprint 1 Tasks
 - Create GitHub repository structure
 - Define data folder strategy

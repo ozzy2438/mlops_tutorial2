@@ -1,0 +1,40 @@
+name: Sprint 1 Python CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate-python-project:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Python syntax check
+        run: |
+          python -m compileall src
+
+      - name: Verify Azure download utility imports safely
+        run: |
+          python -c "import src.download_raw_data; print('download_raw_data imported safely')"
+
+      - name: Confirm raw CSV files are not committed
+        run: |
+          if git ls-files 'data/raw/*.csv' | grep -q .; then
+            echo "Raw CSV files must stay out of GitHub. Store them in Azure Blob Storage instead."
+            git ls-files 'data/raw/*.csv'
+            exit 1
+          fi
+          echo "No raw CSV files are committed under data/raw."
