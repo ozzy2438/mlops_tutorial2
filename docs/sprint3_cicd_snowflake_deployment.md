@@ -7,9 +7,9 @@ approved code reaches `main`. For this project, the pipeline deploys Snowflake
 SQL files and then runs basic validation checks so the team can catch deployment
 or modelling issues early.
 
-The automated workflow deploys transformation and model-building SQL. Azure RAW
-ingestion is treated as a manual or separately secured step because it requires
-runtime Azure SAS credentials.
+The automated workflow deploys transformation, marts, and downstream Snowflake
+ML SQL. Azure RAW ingestion is treated as a manual or separately secured step
+because it requires runtime Azure SAS credentials.
 
 ## How GitHub Actions Deploys Snowflake SQL
 
@@ -49,12 +49,13 @@ GitHub.
 
 ## Deployment Order
 
-Snowflake SQL is deployed in this medallion order:
+Snowflake SQL is deployed in this order:
 
 1. `snowflake/setup/`
 2. `snowflake/staging/`
 3. `snowflake/int_layer/`
 4. `snowflake/marts_layer/`
+5. `snowflake/ml/`
 
 Files are executed alphabetically within each folder, which keeps deployment
 deterministic.
