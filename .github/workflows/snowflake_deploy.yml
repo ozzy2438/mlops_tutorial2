@@ -33,7 +33,19 @@ jobs:
           pip install snowflake-connector-python
 
       - name: Deploy Snowflake SQL models
+        id: deploy_models
         run: python scripts/deploy_snowflake_sql.py
 
       - name: Run Snowflake warehouse validation tests
+        id: validate_models
         run: python scripts/validate_snowflake_models.py
+
+      - name: Upload Snowflake validation reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: snowflake-validation-report-${{ github.run_id }}
+          path: |
+            artifacts/snowflake_validation_report.json
+            artifacts/snowflake_validation_report.md
+          if-no-files-found: warn

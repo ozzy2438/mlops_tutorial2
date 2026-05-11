@@ -14,6 +14,9 @@ credentials.json
 secrets.json
 local_credentials.*
 
+# Runtime CI/CD reports
+artifacts/
+
 # Local data files
 data/raw/*
 !data/raw/.gitkeep
