@@ -144,6 +144,10 @@ def log_fail(message: str) -> None:
     print(f"[FAIL] {message}")
 
 
+def log_warn(message: str) -> None:
+    print(f"[WARN] {message}")
+
+
 def validate_schema_object_counts(cursor, database: str) -> list[str]:
     failures: list[str] = []
 
@@ -205,6 +209,7 @@ def validate_key_mart_row_counts(cursor, database: str) -> list[str]:
 
 def execute_quality_tests(cursor) -> list[str]:
     failures: list[str] = []
+    warnings: list[str] = []
     test_files = sorted(TESTS_DIR.glob("*.sql"))
 
     if not test_files:
@@ -242,21 +247,47 @@ def execute_quality_tests(cursor) -> list[str]:
             failures.append(message)
             continue
 
-        first_row = rows[0]
-        result = dict(zip(columns, first_row))
-        test_name = result.get("TEST_NAME", path.stem)
-        failure_count = int(result.get("FAILURE_COUNT", 0))
-        failure_message = result.get(
-            "FAILURE_MESSAGE",
-            f"{test_name} returned {failure_count} failures",
-        )
+        for row in rows:
+            result = dict(zip(columns, row))
+            test_name = result.get("TEST_NAME", path.stem)
+            failure_count = int(result.get("FAILURE_COUNT", 0))
+            failure_message = result.get(
+                "FAILURE_MESSAGE",
+                f"{test_name} returned {failure_count} failures",
+            )
+            severity = str(result.get("SEVERITY", "FAIL")).upper()
 
-        if failure_count == 0:
-            log_pass(test_name)
-        else:
-            log_fail(f"{test_name} ({failure_count} failing rows/groups) - {failure_message}")
+            if severity not in {"FAIL", "WARN"}:
+                message = (
+                    f"{path.name} returned unsupported severity '{severity}' "
+                    f"for {test_name}"
+                )
+                log_fail(message)
+                failures.append(message)
+                continue
+
+            if failure_count == 0:
+                log_pass(test_name)
+                continue
+
+            if severity == "WARN":
+                log_warn(
+                    f"{test_name} ({failure_count} observed rows/groups) - "
+                    f"{failure_message}"
+                )
+                warnings.append(f"{test_name}: {failure_message} [{failure_count}]")
+                continue
+
+            log_fail(
+                f"{test_name} ({failure_count} failing rows/groups) - "
+                f"{failure_message}"
+            )
             failures.append(f"{test_name}: {failure_message} [{failure_count}]")
 
+    if warnings:
+        print(f"Warning count: {len(warnings)}")
+        for warning in warnings:
+            print(f"- {warning}")
     return failures
 
 
