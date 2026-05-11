@@ -1,0 +1,22 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Local environments and secrets
+.env
+.env.*
+!.env.example
+.snowflake/
+*.pem
+*.key
+*.p8
+credentials.json
+secrets.json
+local_credentials.*
+
+# Local data files
+data/raw/*
+!data/raw/.gitkeep
+
+# OS files
+.DS_Store
