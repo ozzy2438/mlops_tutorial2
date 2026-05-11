@@ -7,6 +7,10 @@ approved code reaches `main`. For this project, the pipeline deploys Snowflake
 SQL files and then runs basic validation checks so the team can catch deployment
 or modelling issues early.
 
+The automated workflow deploys transformation and model-building SQL. Azure RAW
+ingestion is treated as a manual or separately secured step because it requires
+runtime Azure SAS credentials.
+
 ## How GitHub Actions Deploys Snowflake SQL
 
 The workflow in `.github/workflows/snowflake_deploy.yml` runs on pushes to
@@ -19,6 +23,15 @@ The workflow:
 3. Installs `snowflake-connector-python`.
 4. Runs `scripts/deploy_snowflake_sql.py`.
 5. Runs `scripts/validate_snowflake_models.py`.
+
+By default, the deploy script skips:
+
+- `snowflake/setup/02_create_azure_stage.sql`
+- `snowflake/setup/03_copy_into_raw_tables.sql`
+
+These files stay in the repository for documentation and manual execution, but
+they are not run automatically in CI/CD unless a future secure secret-injection
+path is added.
 
 ## Required GitHub Secrets
 
@@ -46,6 +59,10 @@ Snowflake SQL is deployed in this medallion order:
 Files are executed alphabetically within each folder, which keeps deployment
 deterministic.
 
+In automated GitHub Actions runs, the Azure external stage and RAW ingestion
+scripts are skipped before SQL execution. The workflow still runs safe setup
+SQL, then staging, intermediate, and marts model SQL.
+
 ## Team Collaboration
 
 - `ozzy2410` creates the feature branch and pull request.
@@ -63,3 +80,6 @@ deterministic.
 - SQL files containing placeholders such as `<AZURE_SAS_TOKEN_PLACEHOLDER>` are
   skipped by the deployment script and may require manual secret injection or a
   safer future automation path.
+- Azure RAW ingestion is currently manual or separately secured. A future
+  improvement should inject an Azure SAS token through GitHub Secrets or replace
+  SAS-token usage with a secure Snowflake storage integration.

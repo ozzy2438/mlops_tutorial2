@@ -47,6 +47,16 @@ PLACEHOLDER_MARKERS = [
     "<AZURE_STORAGE_KEY_PLACEHOLDER>",
 ]
 
+CI_CD_SKIP_FILES = {
+    ROOT / "snowflake" / "setup" / "02_create_azure_stage.sql",
+    ROOT / "snowflake" / "setup" / "03_copy_into_raw_tables.sql",
+}
+
+AZURE_INGESTION_SKIP_MESSAGE = (
+    "Skipping Azure external stage / raw ingestion script in CI/CD because "
+    "it requires runtime SAS credentials."
+)
+
 
 def require_environment() -> dict[str, str]:
     missing = [name for name in REQUIRED_ENV_VARS if not os.getenv(name)]
@@ -143,6 +153,10 @@ def file_contains_placeholder(path: Path) -> bool:
     return any(marker in content for marker in PLACEHOLDER_MARKERS)
 
 
+def should_skip_in_cicd(path: Path) -> bool:
+    return path in CI_CD_SKIP_FILES
+
+
 def sql_files_in_order() -> list[Path]:
     files: list[Path] = []
     for directory in DEPLOYMENT_DIRS:
@@ -188,6 +202,10 @@ def main() -> int:
 
             for path in files:
                 relative_path = path.relative_to(ROOT)
+                if should_skip_in_cicd(path):
+                    print(f"{AZURE_INGESTION_SKIP_MESSAGE} File: {relative_path}")
+                    continue
+
                 if file_contains_placeholder(path):
                     print(
                         f"WARNING: Skipping {relative_path} because it contains "
