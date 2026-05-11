@@ -8,7 +8,7 @@
   height="720"
   frameborder="0"
 ></iframe>
-https://julius.ai/s/html/768eed08-d4e2-4412-8392-1877bcc1c9d9?utm_source=share&utm_campaign=html&utm_medium=referral
+
 # Retail Revenue Operations Analytics & ML Monitoring Platform
 
 ## 1. Objective
