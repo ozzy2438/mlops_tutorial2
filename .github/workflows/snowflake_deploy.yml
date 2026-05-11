@@ -35,5 +35,5 @@ jobs:
       - name: Deploy Snowflake SQL models
         run: python scripts/deploy_snowflake_sql.py
 
-      - name: Validate Snowflake deployment
+      - name: Run Snowflake warehouse validation tests
         run: python scripts/validate_snowflake_models.py
