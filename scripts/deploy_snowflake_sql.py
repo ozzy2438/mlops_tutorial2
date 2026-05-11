@@ -20,6 +20,7 @@ DEPLOYMENT_DIRS = [
     ROOT / "snowflake" / "staging",
     ROOT / "snowflake" / "int_layer",
     ROOT / "snowflake" / "marts_layer",
+    ROOT / "snowflake" / "ml",
 ]
 
 DIRECTORY_SCHEMAS = {
@@ -27,6 +28,7 @@ DIRECTORY_SCHEMAS = {
     "staging": "STAGING",
     "int_layer": "INT_LAYER",
     "marts_layer": "MARTS_LAYER",
+    "ml": "ML_LAYER",
 }
 
 REQUIRED_ENV_VARS = [
@@ -191,7 +193,7 @@ def main() -> int:
         raise RuntimeError("No Snowflake SQL files found to deploy.")
 
     print("Starting Snowflake SQL deployment.")
-    print("Deployment order: setup -> staging -> int_layer -> marts_layer")
+    print("Deployment order: setup -> staging -> int_layer -> marts_layer -> ml")
 
     conn = connect_to_snowflake(env)
     try:

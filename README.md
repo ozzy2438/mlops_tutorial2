@@ -13,7 +13,7 @@ GitHub push/merge -> GitHub Actions -> Snowflake SQL deployment -> validation su
 The deployment runs SQL in medallion order:
 
 ```text
-setup -> staging -> int_layer -> marts_layer
+setup -> staging -> int_layer -> marts_layer -> ml
 ```
 
 Snowflake credentials are supplied through GitHub Actions secrets and must not
