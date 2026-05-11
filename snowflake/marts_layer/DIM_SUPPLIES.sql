@@ -1,8 +1,9 @@
--- Sprint 2 Snowflake Marts Layer
--- File: DIM_SUPPLIES.sql
--- Purpose: Placeholder for the supplies dimension model.
--- Source: Intermediate supplies model.
+-- Sprint 2 Snowflake Model - DIM_SUPPLIES
+-- Purpose: Publish supplies dimension for analytics.
+-- Source: RETAIL_MLOPS.INT_LAYER.INT_SUPPLIES
 -- Grain: One row per supply record.
--- Known limitations: SQL logic has not been pasted into this repository yet.
+-- Known limitations: Not joined to products for profitability until SKU mapping is validated.
 
--- TODO: Add mart SQL for dim_supplies.
+CREATE OR REPLACE TABLE RETAIL_MLOPS.MARTS_LAYER.DIM_SUPPLIES AS
+SELECT supply_id, supply_name, supply_cost, is_perishable, cost_segment, loaded_at
+FROM RETAIL_MLOPS.INT_LAYER.INT_SUPPLIES;

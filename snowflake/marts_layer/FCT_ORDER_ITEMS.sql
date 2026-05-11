@@ -1,8 +1,10 @@
--- Sprint 2 Snowflake Marts Layer
--- File: FCT_ORDER_ITEMS.sql
--- Purpose: Placeholder for the order items fact model.
--- Source: Intermediate order items model.
+-- Sprint 2 Snowflake Model - FCT_ORDER_ITEMS
+-- Purpose: Publish order item fact table for analytics.
+-- Source: RETAIL_MLOPS.INT_LAYER.INT_ORDER_ITEMS
 -- Grain: One row per order line item.
--- Known limitations: SQL logic has not been pasted into this repository yet.
+-- Known limitations: Fact intentionally excludes unsafe product-supply profitability joins.
 
--- TODO: Add mart SQL for fct_order_items.
+CREATE OR REPLACE TABLE RETAIL_MLOPS.MARTS_LAYER.FCT_ORDER_ITEMS AS
+SELECT order_item_id, order_id, product_id, customer_id, store_id, ordered_at, order_date,
+    product_name, product_type, product_price, price_tier, loaded_at
+FROM RETAIL_MLOPS.INT_LAYER.INT_ORDER_ITEMS;

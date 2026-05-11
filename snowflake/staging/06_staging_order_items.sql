@@ -1,8 +1,15 @@
--- Sprint 2 Snowflake Staging
--- File: 06_staging_order_items.sql
--- Purpose: Placeholder for the staging model that cleans and standardizes raw order item data.
--- Source: RAW order items table populated from raw_order_items.csv.
+-- Sprint 2 Snowflake Model - STG_ORDER_ITEMS
+-- Purpose: Clean and standardize raw order item data.
+-- Source: RETAIL_MLOPS.RAW.RAW_ORDER_ITEMS
 -- Grain: One row per order line item.
--- Known limitations: SQL logic has not been pasted into this repository yet.
+-- Known limitations: Product key is sourced from SKU and renamed to product_id.
 
--- TODO: Add staging SQL for order items.
+CREATE OR REPLACE TABLE STG_ORDER_ITEMS AS
+SELECT
+    TRIM(id) AS order_item_id,
+    TRIM(order_id) AS order_id,
+    TRIM(sku) AS product_id
+FROM RETAIL_MLOPS.RAW.RAW_ORDER_ITEMS
+WHERE id IS NOT NULL
+  AND order_id IS NOT NULL
+  AND sku IS NOT NULL;

@@ -1,8 +1,14 @@
--- Sprint 2 Snowflake Staging
--- File: 04_staging_customers.sql
--- Purpose: Placeholder for the staging model that cleans and standardizes raw customer data.
--- Source: RAW customers table populated from raw_customers.csv.
+-- Sprint 2 Snowflake Model - STG_CUSTOMERS
+-- Purpose: Clean and standardize raw customer data.
+-- Source: RETAIL_MLOPS.RAW.RAW_CUSTOMERS
 -- Grain: One row per customer.
--- Known limitations: SQL logic has not been pasted into this repository yet.
+-- Known limitations: Derived from Snowsight query history; source raw customer table only includes id/name fields.
 
--- TODO: Add staging SQL for customers.
+CREATE OR REPLACE TABLE STG_CUSTOMERS AS
+SELECT
+    TRIM(id) AS customer_id,
+    TRIM(name) AS customer_name,
+    TRIM(SPLIT_PART(name, ' ', 1)) AS first_name,
+    TRIM(SPLIT_PART(name, ' ', 2)) AS last_name
+FROM RETAIL_MLOPS.RAW.RAW_CUSTOMERS
+WHERE id IS NOT NULL;

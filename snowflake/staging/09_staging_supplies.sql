@@ -1,8 +1,14 @@
--- Sprint 2 Snowflake Staging
--- File: 09_staging_supplies.sql
--- Purpose: Placeholder for the staging model that cleans and standardizes raw supply data.
--- Source: RAW supplies table populated from raw_supplies.csv.
+-- Sprint 2 Snowflake Model - STG_SUPPLIES
+-- Purpose: Clean and standardize raw supply data.
+-- Source: RETAIL_MLOPS.RAW.RAW_SUPPLIES
 -- Grain: One row per supply record.
--- Known limitations: SQL logic has not been pasted into this repository yet.
+-- Known limitations: SKU mapping is intentionally not used in downstream profitability until validated.
 
--- TODO: Add staging SQL for supplies.
+CREATE OR REPLACE TABLE STG_SUPPLIES AS
+SELECT
+    TRIM(id) AS supply_id,
+    TRIM(name) AS supply_name,
+    cost::NUMBER(12,2) AS supply_cost,
+    TRY_TO_BOOLEAN(perishable) AS is_perishable
+FROM RETAIL_MLOPS.RAW.RAW_SUPPLIES
+WHERE id IS NOT NULL;

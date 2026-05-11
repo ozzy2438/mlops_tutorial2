@@ -1,9 +1,35 @@
--- Sprint 2 Snowflake Setup
--- File: 03_copy_into_raw_tables.sql
--- Purpose: Placeholder for COPY INTO commands that load Azure raw CSV files into Snowflake RAW tables.
--- Source: Snowsight setup script to be provided.
--- Grain: One raw table load per source CSV file.
--- Known limitations: SQL logic has not been pasted into this repository yet.
--- Security: Raw CSV files and Azure secrets must stay outside GitHub.
+-- Sprint 2 Snowflake Setup - COPY INTO RAW Tables
+-- Purpose: Load raw retail CSV files from the Azure external stage into Snowflake RAW tables.
+-- Source: Snowflake query history COPY INTO statements.
+-- Grain: One COPY command per raw source CSV file.
+-- Known limitations: Raw CSV files remain in Azure Blob Storage and are not committed to GitHub.
 
--- TODO: Add COPY INTO SQL for raw_customers, raw_orders, raw_order_items, raw_products, raw_stores, and raw_supplies.
+COPY INTO RAW_CUSTOMERS
+FROM @AZURE_RAW_STAGE/raw_customers.csv
+FILE_FORMAT = CSV_FORMAT
+ON_ERROR = 'CONTINUE';
+
+COPY INTO RAW_ORDERS
+FROM @AZURE_RAW_STAGE/raw_orders.csv
+FILE_FORMAT = CSV_FORMAT
+ON_ERROR = 'CONTINUE';
+
+COPY INTO RAW_ORDER_ITEMS
+FROM @AZURE_RAW_STAGE/raw_order_items.csv
+FILE_FORMAT = CSV_FORMAT
+ON_ERROR = 'CONTINUE';
+
+COPY INTO RETAIL_MLOPS.RAW.RAW_PRODUCTS
+FROM @RETAIL_MLOPS.RAW.AZURE_RAW_STAGE/raw_products.csv
+FILE_FORMAT = RETAIL_MLOPS.RAW.CSV_FORMAT
+ON_ERROR = 'ABORT_STATEMENT';
+
+COPY INTO RETAIL_MLOPS.RAW.RAW_STORES
+FROM @RETAIL_MLOPS.RAW.AZURE_RAW_STAGE/raw_stores.csv
+FILE_FORMAT = RETAIL_MLOPS.RAW.CSV_FORMAT
+ON_ERROR = 'ABORT_STATEMENT';
+
+COPY INTO RETAIL_MLOPS.RAW.RAW_SUPPLIES
+FROM @RETAIL_MLOPS.RAW.AZURE_RAW_STAGE/raw_supplies.csv
+FILE_FORMAT = RETAIL_MLOPS.RAW.CSV_FORMAT
+ON_ERROR = 'ABORT_STATEMENT';

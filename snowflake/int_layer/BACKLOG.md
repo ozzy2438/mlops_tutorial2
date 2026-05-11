@@ -1,15 +1,14 @@
 # Intermediate Layer Backlog
 
-This file tracks open questions and follow-up work for the Sprint 2 intermediate Snowflake layer.
+## Current Notes
 
-## Notes
+- Snowsight SQL has been extracted from Snowflake query history where available.
+- Product-supply profitability joins remain intentionally excluded until SKU mapping is validated.
+- Historical-aware activity metrics use `dataset_last_order_at` instead of wall-clock current date where implemented.
+- Raw CSV files and credentials remain outside GitHub.
 
-- Keep raw CSV files outside GitHub.
-- Do not commit Azure SAS tokens, connection strings, storage account keys, passwords, or `.env` files.
-- Replace any required secret in SQL examples with placeholders before committing.
+## Follow-up Work
 
-## TODO
-
-- Add SQL contents for each intermediate model after they are reviewed in Snowflake.
-- Confirm naming conventions for intermediate tables and views.
-- Document dependencies between staging, intermediate, and marts models.
+- Validate SKU mapping between products and supplies before adding profitability models.
+- Decide whether these SQL models should remain table materializations or move toward dbt-managed views/tables.
+- Add model tests for primary keys, accepted values, and relationship integrity.

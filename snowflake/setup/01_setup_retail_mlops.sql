@@ -1,9 +1,66 @@
--- Sprint 2 Snowflake Setup
--- File: 01_setup_retail_mlops.sql
--- Purpose: Placeholder for creating the Retail MLOps Snowflake database, schemas, warehouse, and roles.
--- Source: Snowsight setup script to be provided.
--- Grain: Not applicable.
--- Known limitations: SQL logic has not been pasted into this repository yet.
--- Security: Do not add passwords, private keys, connection strings, or other secrets to this file.
+-- Sprint 2 Snowflake Setup - Retail MLOps Database and RAW Tables
+-- Purpose: Create the Snowflake database, medallion schemas, warehouse context, and RAW table structures.
+-- Source: Snowflake metadata from RETAIL_MLOPS database objects.
+-- Grain: One DDL block per database/schema/table object.
+-- Known limitations: Warehouse sizing and grants should be reviewed before production use.
 
--- TODO: Add Snowflake database, schema, warehouse, and role setup SQL from Snowflake.
+
+
+CREATE DATABASE IF NOT EXISTS RETAIL_MLOPS;
+USE DATABASE RETAIL_MLOPS;
+USE WAREHOUSE DEV_WH;
+
+
+CREATE SCHEMA IF NOT EXISTS RETAIL_MLOPS.RAW;
+
+CREATE SCHEMA IF NOT EXISTS RETAIL_MLOPS.STAGING;
+
+CREATE SCHEMA IF NOT EXISTS RETAIL_MLOPS.INT_LAYER;
+
+CREATE SCHEMA IF NOT EXISTS RETAIL_MLOPS.MARTS_LAYER;
+
+
+
+create or replace TABLE RAW_CUSTOMERS (
+	ID VARCHAR(16777216),
+	NAME VARCHAR(16777216)
+);
+
+create or replace TABLE RAW_ORDERS (
+	ID VARCHAR(16777216),
+	CUSTOMER VARCHAR(16777216),
+	ORDERED_AT TIMESTAMP_NTZ(9),
+	STORE_ID VARCHAR(16777216),
+	SUBTOTAL NUMBER(38,0),
+	TAX_PAID NUMBER(38,0),
+	ORDER_TOTAL NUMBER(38,0)
+);
+
+create or replace TABLE RAW_ORDER_ITEMS (
+	ID VARCHAR(16777216),
+	ORDER_ID VARCHAR(16777216),
+	SKU VARCHAR(16777216)
+);
+
+create or replace TABLE RAW_PRODUCTS (
+	SKU VARCHAR(16777216),
+	NAME VARCHAR(16777216),
+	TYPE VARCHAR(16777216),
+	PRICE NUMBER(12,2),
+	DESCRIPTION VARCHAR(16777216)
+);
+
+create or replace TABLE RAW_STORES (
+	ID VARCHAR(16777216),
+	NAME VARCHAR(16777216),
+	OPENED_AT TIMESTAMP_NTZ(9),
+	TAX_RATE FLOAT
+);
+
+create or replace TABLE RAW_SUPPLIES (
+	ID VARCHAR(16777216),
+	NAME VARCHAR(16777216),
+	COST NUMBER(38,0),
+	PERISHABLE BOOLEAN,
+	SKU VARCHAR(16777216)
+);

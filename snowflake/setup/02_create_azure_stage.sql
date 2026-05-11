@@ -1,12 +1,15 @@
--- Sprint 2 Snowflake Setup
--- File: 02_create_azure_stage.sql
--- Purpose: Placeholder for creating the external Azure Blob Storage stage.
--- Source: Snowsight setup script to be provided.
--- Grain: Not applicable.
--- Known limitations: SQL logic has not been pasted into this repository yet.
--- Security: Replace any Azure SAS token with a safe placeholder before committing.
+-- Sprint 2 Snowflake Setup - Azure External Stage
+-- Purpose: Create the CSV file format and Azure Blob Storage external stage used to load raw retail CSV files.
+-- Source: Snowflake file format metadata and SHOW STAGES output for RETAIL_MLOPS.RAW.AZURE_RAW_STAGE.
+-- Grain: One external stage pointing at the mlops-data Azure container.
+-- Known limitations: The real Azure SAS token is intentionally replaced with a placeholder and must be supplied securely at runtime.
 
--- Example placeholder only:
--- AZURE_SAS_TOKEN = '<AZURE_SAS_TOKEN_PLACEHOLDER>'
+CREATE OR REPLACE FILE FORMAT CSV_FORMAT
+	SKIP_HEADER = 1
+	FIELD_OPTIONALLY_ENCLOSED_BY = '\"'
+;
 
--- TODO: Add CREATE STAGE SQL from Snowflake with secrets replaced by placeholders.
+CREATE OR REPLACE STAGE RETAIL_MLOPS.RAW.AZURE_RAW_STAGE
+    URL = 'azure://ozzymldata2410sa.blob.core.windows.net/mlops-data'
+    CREDENTIALS = (AZURE_SAS_TOKEN = '<AZURE_SAS_TOKEN_PLACEHOLDER>')
+    FILE_FORMAT = RETAIL_MLOPS.RAW.CSV_FORMAT;
