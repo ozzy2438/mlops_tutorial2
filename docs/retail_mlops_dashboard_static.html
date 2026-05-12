@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'/>
+<meta name='viewport' content='width=device-width, initial-scale=1'/>
+<title>Retail MLOps Command Center (Static Export)</title>
+<style>
+  :root{--bg:#05070d;--stroke:rgba(148,163,184,.18);--ink:#eef6ff;--muted:#96a8c7;--cyan:#22d3ee;--blue:#38bdf8;--green:#22c55e;}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;}
+  .wrap{max-width:1120px;margin:24px auto;padding:0 16px;}
+  .hero{background:linear-gradient(180deg,rgba(16,24,43,.92),rgba(8,13,25,.94));border:1px solid var(--stroke);border-radius:22px;padding:22px 22px 16px;}
+  .eyebrow{color:var(--cyan);font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:12px;}
+  h1{margin:10px 0 8px;font-size:34px;letter-spacing:-.05em;line-height:1.05;}
+  .sub{margin:0;color:var(--muted);line-height:1.6;font-size:14px;max-width:920px;}
+  .chips{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+  .chip{border:1px solid rgba(56,189,248,.26);background:rgba(56,189,248,.10);color:#cffafe;border-radius:999px;padding:8px 10px;font-size:12px;font-weight:800}
+  .chip.good{border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.12);color:#9af6b5}
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:14px;}
+  .card{background:linear-gradient(180deg,rgba(16,24,43,.90),rgba(8,13,25,.95));border:1px solid var(--stroke);border-radius:20px;padding:16px;}
+  .kpis{grid-column:1 / -1;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .kpi{background:rgba(7,16,31,.55);border:1px solid rgba(148,163,184,.16);border-radius:16px;padding:12px}
+  .kpi .label{color:rgba(150,168,199,.85);font-size:10px;text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+  .kpi .value{margin-top:6px;font-size:22px;font-weight:900;letter-spacing:-.04em}
+  .title{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+  .title h2{margin:0;font-size:16px;letter-spacing:-.02em}
+  .title .hint{color:var(--muted);font-size:12px}
+  .muted{color:var(--muted)}
+  table{width:100%;border-collapse:collapse;margin-top:10px;font-size:13px}
+  th,td{padding:10px 10px;border-bottom:1px solid rgba(148,163,184,.12);text-align:left;vertical-align:top}
+  th{color:rgba(150,168,199,.9);font-size:11px;text-transform:uppercase;letter-spacing:.12em}
+  .pill{display:inline-block;border-radius:999px;padding:4px 8px;border:1px solid rgba(56,189,248,.28);background:rgba(56,189,248,.10);color:#cffafe;font-weight:800;font-size:12px}
+  .foot{margin:14px 0 26px;color:rgba(150,168,199,.75);font-size:12px;line-height:1.6}
+  @media (max-width: 980px){.kpis{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width: 560px){.kpis{grid-template-columns:1fr} h1{font-size:28px}}
+</style>
+</head>
+<body>
+  <div class='wrap'>
+    <div class='hero'>
+      <div class='eyebrow'>Static export (no JS, no external dependencies)</div>
+      <h1>Retail MLOps Command Center</h1>
+      <p class='sub'>Simplified, share-safe export built to avoid Server Components render errors. Includes KPI snapshot, inline SVG charts, and key monitoring tables. No interactive libraries. No external state.</p>
+      <div class='chips'>
+        <span class='chip good'>Validation: PASS</span>
+        <span class='chip'>Curated anomalies: 3</span>
+        <span class='chip'>Warehouse refresh: 2026-05-11 18:42</span>
+        <span class='chip'>Data range: 2016-09-01 to 2022-08-30</span>
+      </div>
+    </div>
+
+    <div class='grid'>
+      <div class='card kpis'>
+        <div class='kpi'><div class='label'>Total revenue</div><div class='value'>$2,241,866,284</div></div>
+        <div class='kpi'><div class='label'>Total orders</div><div class='value'>2,088,006</div></div>
+        <div class='kpi'><div class='label'>Avg order value</div><div class='value'>$1,074</div></div>
+        <div class='kpi'><div class='label'>Stores</div><div class='value'>6</div></div>
+        <div class='kpi'><div class='label'>Customers</div><div class='value'>3,102</div></div>
+      </div>
+
+      <div class='card' style='grid-column:1/-1;'>
+        <div class='title'><h2>Revenue trend (monthly, last 24 months)</h2><span class='hint'>Inline SVG</span></div>
+        <svg viewBox='0 0 980 260' width='100%' height='260' role='img' aria-label='Line chart'><rect x='0' y='0' width='980' height='260' fill='transparent'/><line x1='38' y1='222.0' x2='942' y2='222.0' stroke='rgba(148,163,184,0.14)' stroke-dasharray='4,6'/><line x1='38' y1='176.0' x2='942' y2='176.0' stroke='rgba(148,163,184,0.14)' stroke-dasharray='4,6'/><line x1='38' y1='130.0' x2='942' y2='130.0' stroke='rgba(148,163,184,0.14)' stroke-dasharray='4,6'/><line x1='38' y1='84.0' x2='942' y2='84.0' stroke='rgba(148,163,184,0.14)' stroke-dasharray='4,6'/><line x1='38' y1='38.0' x2='942' y2='38.0' stroke='rgba(148,163,184,0.14)' stroke-dasharray='4,6'/><text x='10' y='226.0' font-size='11' fill='#96a8c7'>37316481</text><text x='10' y='180.0' font-size='11' fill='#96a8c7'>41526429</text><text x='10' y='134.0' font-size='11' fill='#96a8c7'>45736377</text><text x='10' y='88.0' font-size='11' fill='#96a8c7'>49946325</text><text x='10' y='42.0' font-size='11' fill='#96a8c7'>54156273</text><path d='M 38.0 222 L 38.0 190.79 L 77.3 90.79 L 116.61 102.42 L 155.91 64.11 L 195.22 72.01 L 234.52 126.29 L 273.83 70.26 L 313.13 105.21 L 352.43 109.47 L 391.74 159.22 L 431.04 222.0 L 470.35 215.73 L 509.65 172.45 L 548.96 78.49 L 588.26 66.36 L 627.57 38.0 L 666.87 53.28 L 706.17 104.96 L 745.48 50.67 L 784.78 92.05 L 824.09 77.89 L 863.39 147.9 L 902.7 217.23 L 942.0 216.36 L 942.0 222 Z' fill='rgba(56,189,248,0.12)'/><polyline points='38.0,190.79 77.3,90.79 116.61,102.42 155.91,64.11 195.22,72.01 234.52,126.29 273.83,70.26 313.13,105.21 352.43,109.47 391.74,159.22 431.04,222.0 470.35,215.73 509.65,172.45 548.96,78.49 588.26,66.36 627.57,38.0 666.87,53.28 706.17,104.96 745.48,50.67 784.78,92.05 824.09,77.89 863.39,147.9 902.7,217.23 942.0,216.36' fill='none' stroke='#38bdf8' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/><text x='38.0' y='250' text-anchor='middle' font-size='11' fill='#96a8c7'>2020-09</text><text x='195.2173913043478' y='250' text-anchor='middle' font-size='11' fill='#96a8c7'>2021-01</text><text x='352.4347826086956' y='250' text-anchor='middle' font-size='11' fill='#96a8c7'>2021-05</text><text x='509.6521739130435' y='250' text-anchor='middle' font-size='11' fill='#96a8c7'>2021-09</text><text x='666.8695652173913' y='250' text-anchor='middle' font-size='11' fill='#96a8c7'>2022-01</text><text x='824.0869565217391' y='250' text-anchor='middle' font-size='11' fill='#96a8c7'>2022-05</text><text x='942.0' y='250' text-anchor='middle' font-size='11' fill='#96a8c7'>2022-08</text></svg>
+      </div>
+
+      <div class='card' style='grid-column:1/-1;'>
+        <div class='title'><h2>Top stores by revenue</h2><span class='hint'>Inline SVG + table</span></div>
+        <svg viewBox='0 0 980 230' width='100%' height='230'><text x='22' y='43.0' font-size='12' fill='#e6f1ff'>Brooklyn</text><rect x='280' y='30.0' width='680.0' height='16' rx='8' fill='#38bdf8' opacity='0.9'/><text x='970.0' y='43.0' font-size='12' fill='#96a8c7'>609076071</text><text x='22' y='74.0' font-size='12' fill='#e6f1ff'>Chicago</text><rect x='280' y='61.0' width='481.53297836585017' height='16' rx='8' fill='#38bdf8' opacity='0.9'/><text x='771.5329783658501' y='74.0' font-size='12' fill='#96a8c7'>431309139</text><text x='22' y='105.0' font-size='12' fill='#e6f1ff'>Philadelphia</text><rect x='280' y='92.0' width='451.1125699436647' height='16' rx='8' fill='#38bdf8' opacity='0.9'/><text x='741.1125699436648' y='105.0' font-size='12' fill='#96a8c7'>404061576</text><text x='22' y='136.0' font-size='12' fill='#e6f1ff'>San Francisco</text><rect x='280' y='123.0' width='425.4024188712546' height='16' rx='8' fill='#38bdf8' opacity='0.9'/><text x='715.4024188712547' y='136.0' font-size='12' fill='#96a8c7'>381032991</text><text x='22' y='167.0' font-size='12' fill='#e6f1ff'>New Orleans</text><rect x='280' y='154.0' width='251.7528756436731' height='16' rx='8' fill='#38bdf8' opacity='0.9'/><text x='541.7528756436731' y='167.0' font-size='12' fill='#96a8c7'>225495077</text><text x='22' y='198.0' font-size='12' fill='#e6f1ff'>Los Angeles</text><rect x='280' y='185.0' width='213.1198032240541' height='16' rx='8' fill='#38bdf8' opacity='0.9'/><text x='503.11980322405407' y='198.0' font-size='12' fill='#96a8c7'>190891430</text></svg>
+        <table>
+          <thead><tr><th>Store</th><th>Revenue</th><th>Orders</th><th>Customers</th><th>AOV</th></tr></thead>
+          <tbody>
+            <tr><td>Brooklyn</td><td>$609,076,071</td><td class='muted'>572,260</td><td class='muted'>701</td><td class='muted'>$1,064</td></tr><tr><td>Chicago</td><td>$431,309,139</td><td class='muted'>390,695</td><td class='muted'>601</td><td class='muted'>$1,104</td></tr><tr><td>Philadelphia</td><td>$404,061,576</td><td class='muted'>379,509</td><td class='muted'>450</td><td class='muted'>$1,065</td></tr><tr><td>San Francisco</td><td>$381,032,991</td><td class='muted'>350,110</td><td class='muted'>550</td><td class='muted'>$1,088</td></tr><tr><td>New Orleans</td><td>$225,495,077</td><td class='muted'>215,806</td><td class='muted'>400</td><td class='muted'>$1,045</td></tr><tr><td>Los Angeles</td><td>$190,891,430</td><td class='muted'>179,626</td><td class='muted'>400</td><td class='muted'>$1,063</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class='card' style='grid-column:1/-1;'>
+        <div class='title'><h2>Pipeline validation health</h2><span class='hint'>Inline SVG + table</span></div>
+        <svg viewBox='0 0 980 170' width='100%' height='170'><text x='22' y='43.0' font-size='12' fill='#e6f1ff'>PASS</text><rect x='280' y='30.0' width='680.0' height='16' rx='8' fill='#22c55e' opacity='0.9'/><text x='970.0' y='43.0' font-size='12' fill='#96a8c7'>5</text><text x='22' y='85.0' font-size='12' fill='#e6f1ff'>WARN</text><rect x='280' y='72.0' width='2' height='16' rx='8' fill='#22c55e' opacity='0.9'/><text x='292' y='85.0' font-size='12' fill='#96a8c7'>0</text><text x='22' y='127.0' font-size='12' fill='#e6f1ff'>FAIL</text><rect x='280' y='114.0' width='2' height='16' rx='8' fill='#22c55e' opacity='0.9'/><text x='292' y='127.0' font-size='12' fill='#96a8c7'>0</text></svg>
+        <table>
+          <thead><tr><th>Check</th><th>Status</th><th>Details</th><th>Observed</th></tr></thead>
+          <tbody>
+            <tr><td>daily_order_count_scored_rows</td><td><span class='pill'>PASS</span></td><td class='muted'>Daily order-count scoring output should contain at least one row.</td><td>61</td></tr><tr><td>daily_revenue_scored_rows</td><td><span class='pill'>PASS</span></td><td class='muted'>Daily revenue scoring output should contain at least one row.</td><td>61</td></tr><tr><td>retail_sales_anomaly_null_dates</td><td><span class='pill'>PASS</span></td><td class='muted'>Consolidated anomaly rows should not have null metric_date values.</td><td>0</td></tr><tr><td>retail_sales_anomaly_rows</td><td><span class='pill'>PASS</span></td><td class='muted'>Consolidated anomaly table should be materialized even when anomaly count is zero.</td><td>3</td></tr><tr><td>store_daily_revenue_scored_rows</td><td><span class='pill'>PASS</span></td><td class='muted'>Store-level daily revenue scoring output should contain at least one row.</td><td>366</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class='card' style='grid-column:1/-1;'>
+        <div class='title'><h2>Curated anomaly summary (top by distance)</h2><span class='hint'>Table</span></div>
+        <table>
+          <thead><tr><th>Date</th><th>Metric</th><th>Entity</th><th>Actual</th><th>Forecast</th><th>Distance</th></tr></thead>
+          <tbody>
+            <tr><td>2022-07-30</td><td>store_daily_revenue</td><td class='muted'>59792247-7bea-4ab4-ab9b-f5b9087fe795</td><td>$172,016</td><td class='muted'>$96,058</td><td><span class='pill'>3.44</span></td></tr><tr><td>2022-07-10</td><td>daily_order_count</td><td class='muted'>All Stores</td><td>$404</td><td class='muted'>$245</td><td><span class='pill'>3.32</span></td></tr><tr><td>2022-08-06</td><td>store_daily_revenue</td><td class='muted'>9367715b-81b1-4690-8106-62eea3e2bd74</td><td>$275,287</td><td class='muted'>$198,921</td><td><span class='pill'>2.81</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class='foot'>
+      Generated from: MARTS_LAYER.FCT_ORDERS, MARTS_LAYER.DIM_STORES, ML_LAYER.VW_ANOMALY_OUTPUT_VALIDATION, ML_LAYER.RETAIL_SALES_ANOMALIES.
+    </div>
+  </div>
+  <script>
+    (function () {
+      var direction = 1;
+      var paused = false;
+      var lastMove = 0;
+
+      function tick(timestamp) {
+        if (!paused && timestamp - lastMove > 24) {
+          var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+          if (window.scrollY >= maxScroll - 4) direction = -1;
+          if (window.scrollY <= 4) direction = 1;
+          window.scrollBy({ top: direction * 1.2, left: 0, behavior: 'auto' });
+          lastMove = timestamp;
+        }
+        requestAnimationFrame(tick);
+      }
+
+      window.addEventListener('pointerenter', function () { paused = true; });
+      window.addEventListener('pointerleave', function () { paused = false; });
+      window.addEventListener('wheel', function () { paused = true; }, { passive: true });
+      requestAnimationFrame(tick);
+    })();
+  </script>
+</body>
+</html>

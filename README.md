@@ -1,8 +1,14 @@
 # Retail Revenue Operations Analytics & ML Monitoring Platform
 
 <p align="center">
-  <a href="https://julius.ai/s/html/5f02e403-c781-43df-b194-bddf5e3a24ee?utm_source=share&utm_campaign=html&utm_medium=referral" target="_blank">
-    <img src="https://img.shields.io/badge/Open%20Live%20Julius%20Dashboard-Snowflake%20Connected-4A90E2?style=for-the-badge" alt="Open Live Julius Dashboard" />
+  <a href="https://htmlpreview.github.io/?https://github.com/ozzy2438/mlops_tutorial2/blob/main/docs/retail_mlops_dashboard_static.html" target="_blank">
+    <img src="docs/retail_mlops_dashboard_preview.png" alt="Retail MLOps Dashboard Preview" width="100%" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://htmlpreview.github.io/?https://github.com/ozzy2438/mlops_tutorial2/blob/main/docs/retail_mlops_dashboard_static.html" target="_blank">
+    <img src="https://img.shields.io/badge/Open%20Static%20Dashboard-HTML%20Preview-4A90E2?style=for-the-badge" alt="Open Static Dashboard HTML Preview" />
   </a>
 </p>
 
@@ -57,7 +63,7 @@ Azure Blob Storage
 -> DATA QUALITY TESTS
 -> OBSERVABILITY REPORTS
 -> ML_LAYER
--> Julius Interactive Dashboard
+-> Static HTML Dashboard
 ```
 
 - `RAW`: source-aligned landing tables
@@ -129,7 +135,9 @@ deployment for a real company.
 
 ## 9. Dashboard
 
-The final dashboard was built using Julius AI connected to Snowflake.
+The final dashboard is published as a static HTML export for reliable public
+viewing without login, third-party session state or server-side render
+dependencies.
 
 It includes:
 
@@ -143,14 +151,12 @@ It includes:
 ## Dashboard Preview
 
 <p align="center">
-  <a href="https://julius.ai/s/html/5f02e403-c781-43df-b194-bddf5e3a24ee?utm_source=share&utm_campaign=html&utm_medium=referral" target="_blank">
-    <img src="https://img.shields.io/badge/Open%20Full%20Julius%20Dashboard-Snowflake%20Connected-4A90E2?style=for-the-badge" alt="Open Full Julius Dashboard" />
+  <a href="https://htmlpreview.github.io/?https://github.com/ozzy2438/mlops_tutorial2/blob/main/docs/retail_mlops_dashboard_static.html" target="_blank">
+    <img src="docs/retail_mlops_dashboard_preview.png" alt="Retail MLOps Dashboard Preview" width="100%" />
   </a>
 </p>
 
-> Click the badge above to open the Snowflake-connected Julius dashboard in your browser. Julius may show a browser verification step before loading the public dashboard.
->
-> Static fallback preview: https://htmlpreview.github.io/?https://github.com/ozzy2438/mlops_tutorial2/blob/main/docs/dashboard.html
+> Click the preview above to open the static dashboard export in your browser.
 
 ## 10. Tooling
 
@@ -161,7 +167,7 @@ It includes:
 - Validation: Python, SQL tests
 - Observability: JSON and Markdown validation artifacts
 - ML: Snowflake ML anomaly detection
-- Dashboard: Julius AI
+- Dashboard: Static HTML export
 - Version Control: GitHub
 - Collaboration: Pull Requests, branch-based workflow
 
@@ -216,7 +222,7 @@ Do not commit real secrets.
   mapping is fully modelled
 - Password-based Snowflake auth is used for learning; future improvement would
   use key-pair auth or workload identity
-- Dashboard is built outside the repo through Julius AI
+- Static dashboard export is checked into the repo for reliable public preview
 
 ## 14. Future Improvements
 
