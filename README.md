@@ -1,8 +1,8 @@
 # Retail Revenue Operations Analytics & ML Monitoring Platform
 
 <p align="center">
-  <a href="https://htmlpreview.github.io/?https://github.com/ozzy2438/mlops_tutorial2/blob/main/docs/dashboard.html" target="_blank">
-    <img src="https://img.shields.io/badge/Open%20Interactive%20Dashboard-Live%20Preview-4A90E2?style=for-the-badge" alt="Open Interactive Dashboard" />
+  <a href="https://julius.ai/s/html/5f02e403-c781-43df-b194-bddf5e3a24ee?utm_source=share&utm_campaign=html&utm_medium=referral" target="_blank">
+    <img src="https://img.shields.io/badge/Open%20Live%20Julius%20Dashboard-Snowflake%20Connected-4A90E2?style=for-the-badge" alt="Open Live Julius Dashboard" />
   </a>
 </p>
 
@@ -143,12 +143,14 @@ It includes:
 ## Dashboard Preview
 
 <p align="center">
-  <a href="https://htmlpreview.github.io/?https://github.com/ozzy2438/mlops_tutorial2/blob/main/docs/dashboard.html" target="_blank">
-    <img src="https://img.shields.io/badge/▶%20Open%20Full%20Interactive%20Dashboard-Live%20Preview-4A90E2?style=for-the-badge" alt="Open Full Interactive Dashboard" />
+  <a href="https://julius.ai/s/html/5f02e403-c781-43df-b194-bddf5e3a24ee?utm_source=share&utm_campaign=html&utm_medium=referral" target="_blank">
+    <img src="https://img.shields.io/badge/Open%20Full%20Julius%20Dashboard-Snowflake%20Connected-4A90E2?style=for-the-badge" alt="Open Full Julius Dashboard" />
   </a>
 </p>
 
-> Click the badge above to open the live interactive dashboard in your browser. No login required.
+> Click the badge above to open the Snowflake-connected Julius dashboard in your browser. Julius may show a browser verification step before loading the public dashboard.
+>
+> Static fallback preview: https://htmlpreview.github.io/?https://github.com/ozzy2438/mlops_tutorial2/blob/main/docs/dashboard.html
 
 ## 10. Tooling
 
