@@ -1,15 +1,10 @@
-<p align="center">
-  <a href="https://api.julius.ai/shared/html/768eed08-d4e2-4412-8392-1877bcc1c9d9/embed">Open Interactive Julius Dashboard</a>
-</p>
-
-<iframe
-  src="https://api.julius.ai/shared/html/768eed08-d4e2-4412-8392-1877bcc1c9d9/embed"
-  width="100%"
-  height="720"
-  frameborder="0"
-></iframe>
-
 # Retail Revenue Operations Analytics & ML Monitoring Platform
+
+<p align="center">
+  <a href="https://htmlpreview.github.io/?https://github.com/ozzy2438/mlops_tutorial2/blob/main/docs/dashboard.html" target="_blank">
+    <img src="https://img.shields.io/badge/Open%20Interactive%20Dashboard-Live%20Preview-4A90E2?style=for-the-badge" alt="Open Interactive Dashboard" />
+  </a>
+</p>
 
 ## 1. Objective
 
@@ -147,9 +142,13 @@ It includes:
 
 ## Dashboard Preview
 
-![Dashboard Preview](docs/images/dashboard_preview.png)
+<p align="center">
+  <a href="https://htmlpreview.github.io/?https://github.com/ozzy2438/mlops_tutorial2/blob/main/docs/dashboard.html" target="_blank">
+    <img src="https://img.shields.io/badge/▶%20Open%20Full%20Interactive%20Dashboard-Live%20Preview-4A90E2?style=for-the-badge" alt="Open Full Interactive Dashboard" />
+  </a>
+</p>
 
-Add dashboard screenshot here.
+> Click the badge above to open the live interactive dashboard in your browser. No login required.
 
 ## 10. Tooling
 
