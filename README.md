@@ -1,8 +1,8 @@
 # Retail Revenue Operations Analytics & ML Monitoring Platform
 
 <p align="center">
-  <a href="https://julius.ai/s/html/55754865-f526-4777-82b9-1d7bb30432ac" target="_blank">
-    <img src="https://img.shields.io/badge/Open%20Interactive%20Dashboard-Julius%20AI-4A90E2?style=for-the-badge" alt="Open Interactive Dashboard" />
+  <a href="https://htmlpreview.github.io/?https://github.com/ozzy2438/mlops_tutorial2/blob/main/docs/dashboard.html" target="_blank">
+    <img src="https://img.shields.io/badge/Open%20Interactive%20Dashboard-Live%20Preview-4A90E2?style=for-the-badge" alt="Open Interactive Dashboard" />
   </a>
 </p>
 
@@ -143,12 +143,12 @@ It includes:
 ## Dashboard Preview
 
 <p align="center">
-  <a href="https://julius.ai/s/html/55754865-f526-4777-82b9-1d7bb30432ac" target="_blank">
-    <img src="https://img.shields.io/badge/▶%20Open%20Full%20Interactive%20Dashboard-Julius%20AI-4A90E2?style=for-the-badge" alt="Open Full Interactive Dashboard" />
+  <a href="https://htmlpreview.github.io/?https://github.com/ozzy2438/mlops_tutorial2/blob/main/docs/dashboard.html" target="_blank">
+    <img src="https://img.shields.io/badge/▶%20Open%20Full%20Interactive%20Dashboard-Live%20Preview-4A90E2?style=for-the-badge" alt="Open Full Interactive Dashboard" />
   </a>
 </p>
 
-> Click the badge above to open the live interactive dashboard in your browser.
+> Click the badge above to open the live interactive dashboard in your browser. No login required.
 
 ## 10. Tooling
 
