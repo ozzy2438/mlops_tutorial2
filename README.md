@@ -1,14 +1,14 @@
 # Retail Revenue Operations Analytics & ML Monitoring Platform
 
 <p align="center">
-  <a href="https://htmlpreview.github.io/?https://github.com/ozzy2438/mlops_tutorial2/blob/main/docs/retail_mlops_dashboard_static.html" target="_blank">
-    <img src="docs/retail_mlops_dashboard_preview.png" alt="Retail MLOps Dashboard Preview" width="100%" />
+  <a href="https://htmlpreview.github.io/?https://github.com/ozzy2438/mlops_tutorial2/blob/main/docs/retail_mlops_dashboard_interactive_static_v2.html" target="_blank">
+    <img src="docs/retail_mlops_dashboard_interactive_preview.png" alt="Retail MLOps Interactive Dashboard Preview" width="100%" />
   </a>
 </p>
 
 <p align="center">
-  <a href="https://htmlpreview.github.io/?https://github.com/ozzy2438/mlops_tutorial2/blob/main/docs/retail_mlops_dashboard_static.html" target="_blank">
-    <img src="https://img.shields.io/badge/Open%20Static%20Dashboard-HTML%20Preview-4A90E2?style=for-the-badge" alt="Open Static Dashboard HTML Preview" />
+  <a href="https://htmlpreview.github.io/?https://github.com/ozzy2438/mlops_tutorial2/blob/main/docs/retail_mlops_dashboard_interactive_static_v2.html" target="_blank">
+    <img src="https://img.shields.io/badge/Open%20Interactive%20Dashboard-Stores%20%26%20Products-4A90E2?style=for-the-badge" alt="Open Interactive Dashboard" />
   </a>
 </p>
 
@@ -137,26 +137,18 @@ deployment for a real company.
 
 The final dashboard is published as a static HTML export for reliable public
 viewing without login, third-party session state or server-side render
-dependencies.
+dependencies. It includes client-side filters for stores and products, with
+KPIs and feature panels updating based on the selected view.
 
 It includes:
 
 - executive KPIs
 - sales trends
 - store performance
+- product performance
 - data-quality status
 - pipeline health
 - ML anomaly monitoring
-
-## Dashboard Preview
-
-<p align="center">
-  <a href="https://htmlpreview.github.io/?https://github.com/ozzy2438/mlops_tutorial2/blob/main/docs/retail_mlops_dashboard_static.html" target="_blank">
-    <img src="docs/retail_mlops_dashboard_preview.png" alt="Retail MLOps Dashboard Preview" width="100%" />
-  </a>
-</p>
-
-> Click the preview above to open the static dashboard export in your browser.
 
 ## 10. Tooling
 
